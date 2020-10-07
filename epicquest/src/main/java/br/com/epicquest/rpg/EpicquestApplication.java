@@ -10,5 +10,4 @@ public class EpicquestApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(EpicquestApplication.class, args);
 	}
-
 }
