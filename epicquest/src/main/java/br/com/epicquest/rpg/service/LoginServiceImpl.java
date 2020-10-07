@@ -35,7 +35,7 @@ public class LoginServiceImpl implements LoginService {
 	public UserJwtDTO login(LoginDTO usuario) {
 		try {
 			Authentication authentication = authenticationManager.authenticate(
-					new UsernamePasswordAuthenticationToken(usuario.getUserName(), usuario.getUserPassword()));
+					new UsernamePasswordAuthenticationToken(usuario.getUsername(), usuario.getPassword()));
 
 			SecurityContextHolder.getContext().setAuthentication(authentication);
 

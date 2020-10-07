@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,11 +12,13 @@ import lombok.Setter;
 @Setter
 @Builder
 @AllArgsConstructor
-public class UserJwtDTO implements Serializable{
+@EqualsAndHashCode(of = "id")
+public class PoderDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
-	private UserDTO User;
-	
-	private String Token;
+	private Integer id;
+	private String name;
+	private String description;
+	private String category;
+	private RequirementDTO requirement;
 }

@@ -26,28 +26,28 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
-	@Column(name = "userId")
-	private Long userId;
+	@Column(name = "id")
+	private Long id;
 
 	@Basic(optional = false)
-	@Column(name = "userName")
-	private String userName;
+	@Column(name = "username")
+	private String username;
 
 	@Basic(optional = false)
-	@Column(name = "fullName")
-	private String fullName;
+	@Column(name = "fullname")
+	private String fullname;
 	
 	@Basic(optional = false)
 	@Column(name = "birthday")
 	private Date birthday;
 	
 	@Basic(optional = false)
-	@Column(name = "userPassword")
-	private String userPassword;
+	@Column(name = "password")
+	private String password;
 
 	@Basic(optional = false)
-	@Column(name = "userEmail")
-	private String userEmail;
+	@Column(name = "email")
+	private String email;
 
 	@Column(name = "photoDirectory")
 	private String photoDirectory;

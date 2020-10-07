@@ -33,7 +33,7 @@ public class UsuarioLogado implements UserDetails {
 	private String password;
 
 	public static UsuarioLogado create(User user) {
-		return new UsuarioLogado(user.getUserId(), user.getUserName(), user.getUserEmail(), user.getUserPassword());
+		return new UsuarioLogado(user.getId(), user.getUsername(), user.getEmail(), user.getPassword());
 	}
 
 	@Override

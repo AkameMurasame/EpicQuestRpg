@@ -22,8 +22,8 @@ public class UserServiceImpl implements UserService {
 
 	public UserDTO registerUser(UserDTO userDto) {
 		User user = _userMapper.toModel(userDto);
-		if (!_userRepository.existsByUserName(user.getUserName())) {
-			user.setUserPassword(_passwordEncoder.encode(user.getUserPassword()));
+		if (!_userRepository.existsByUsername(user.getUsername())) {
+			user.setPassword(_passwordEncoder.encode(user.getPassword()));
 			user = _userRepository.save(user);
 			return _userMapper.toDto(user);
 		} else {

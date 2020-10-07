@@ -15,18 +15,18 @@ import lombok.Setter;
 @Setter
 @Builder
 @AllArgsConstructor
-@EqualsAndHashCode(of = "userId")
+@EqualsAndHashCode(of = "id")
 public class UserDTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
-	private Long userId;
+	private Long id;
 
 	@NotBlank(message = "UserName is required")
-	private String userName;
+	private String username;
 
 	@NotBlank(message = "FullName is required")
-	private String fullName;
+	private String fullname;
 	
 	@NotBlank(message = "Birthday is required")
 	private Date birthday;
