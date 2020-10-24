@@ -28,6 +28,8 @@ public class LoginServiceImpl implements LoginService {
 
 	@NonNull
 	private JwtTokenProvider tokenProvider;
+	
+	
 
 	@Autowired
 	private AuthenticationManager authenticationManager;
@@ -44,6 +46,7 @@ public class LoginServiceImpl implements LoginService {
 			String jwt = tokenProvider.generateToken(userPrincipal);
 
 			UserJwtDTO usuarioLogado = UserJwtDTO.builder().Token(jwt).User(null).build();
+			usuarioLogado.setUser(userPrincipal);
 
 			return usuarioLogado;
 		} catch (AuthenticationException e) {

@@ -37,10 +37,8 @@ public class UserDTO implements Serializable{
 	@NotEmpty(message = "Email is required")
 	private String email;
 	
-	@JsonIgnore
 	@NotEmpty(message = "UserName is required")
 	private String password;
 	
-	@JsonIgnore
 	private String confirmPassword;
 }

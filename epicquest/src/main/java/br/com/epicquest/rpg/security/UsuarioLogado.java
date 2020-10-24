@@ -5,6 +5,8 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import br.com.epicquest.rpg.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,10 +32,15 @@ public class UsuarioLogado implements UserDetails {
 
 	private String email;
 
+	private String description;
+	
+	@JsonIgnore
 	private String password;
+	
+	private String photoDirectory;
 
 	public static UsuarioLogado create(User user) {
-		return new UsuarioLogado(user.getId(), user.getUserName(), user.getEmail(), user.getPassword());
+		return new UsuarioLogado(user.getId(), user.getUserName(), user.getEmail(), user.getPassword(), user.getDescription(), user.getPhotoDirectory());
 	}
 
 	@Override
