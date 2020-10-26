@@ -38,35 +38,44 @@ import lombok.Setter;
 public class Pericia implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    
     @Basic(optional = false)
     @Column(name = "name")
     private String name;
+    
     @Basic(optional = false)
     @Column(name = "attribute")
     private String attribute;
+    
     @Basic(optional = false)
     @Column(name = "onlyTrained")
     private boolean onlyTrained;
+    
     @Basic(optional = false)
     @Column(name = "armorPenalty")
     private boolean armorPenalty;
+    
     @JoinTable(name = "PericiasRace", joinColumns = {
         @JoinColumn(name = "periciaId", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "raceId", referencedColumnName = "id")})
     @ManyToMany
     private List<Race> raceCollection;
+    
     @ManyToMany(mappedBy = "periciaCollection")
     private List<Classe> classeCollection;
+    
     @JoinTable(name = "PericiasPlayer", joinColumns = {
         @JoinColumn(name = "periciaId", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "playerId", referencedColumnName = "id")})
     @ManyToMany
     private List<Player> playerCollection;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "periciaTrained")
     private List<SorcererLineageBuff> sorcererLineageBuffCollection;
 }
