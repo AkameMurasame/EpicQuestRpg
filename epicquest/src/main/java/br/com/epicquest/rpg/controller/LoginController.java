@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/Login")
+@RequestMapping("/api/v1/login")
 public class LoginController {
 
 	@NonNull

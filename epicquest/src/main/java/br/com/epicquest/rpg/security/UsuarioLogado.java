@@ -40,7 +40,7 @@ public class UsuarioLogado implements UserDetails {
 	private String photoDirectory;
 
 	public static UsuarioLogado create(User user) {
-		return new UsuarioLogado(user.getId(), user.getUserName(), user.getEmail(), user.getPassword(), user.getDescription(), user.getPhotoDirectory());
+		return new UsuarioLogado(user.getId(), user.getUserName(), user.getEmail(), user.getPassword(), user.getDescription(), user.getPhotoUrl());
 	}
 
 	@Override
