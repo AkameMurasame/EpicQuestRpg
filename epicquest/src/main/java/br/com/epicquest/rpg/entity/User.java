@@ -51,7 +51,7 @@ public class User implements Serializable {
 	@Column(name = "email")
 	private String email;
 
-	@Column(name = "photoUrl")
+	@Column(name = "photoDirectory")
 	private String photoUrl;
 
 	@JoinTable(name = "AdventureUsers", joinColumns = {
