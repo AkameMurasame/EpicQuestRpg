@@ -27,7 +27,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 		User user = userRepository.findByUserName(usernameOrEmail).orElseThrow(
 				() -> new UsernameNotFoundException("User not found with username or email : " + usernameOrEmail));
 
-		return UsuarioLogado.create(user);
+		UsuarioLogado usuario = UsuarioLogado.create(user);
+		return usuario;
 	}
 
 	@Transactional

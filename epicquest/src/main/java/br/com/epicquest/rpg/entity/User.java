@@ -58,7 +58,7 @@ public class User implements Serializable {
 			@JoinColumn(name = "userId", referencedColumnName = "id") }, inverseJoinColumns = {
 					@JoinColumn(name = "adventureId", referencedColumnName = "id") })
 	@ManyToMany
-	private List<Adventure> adventureCollection;
+	private List<Adventure> adventures;
 
 	/*
 	 * @JoinTable(name = "PermissionList", joinColumns = {

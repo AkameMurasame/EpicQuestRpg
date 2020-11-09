@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,19 +23,12 @@ public class AdventureDTO implements Serializable {
 
 	private Integer id;
 	
-	@NotBlank(message = "Name is required")
+	@NotEmpty(message = "Name is required")
 	private String name;
 	
-	@NotBlank(message = "Photo is required")
+	@NotEmpty(message = "Photo is required")
 	private String photoUrl;
 	
-	@NotBlank(message = "Description is required")
+	@NotEmpty(message = "Description is required")
 	private String description;
-	
-	@NotBlank(message = "Master is required")
-	private UserDTO master;
-	
-	private List<UserDTO> users;
-	private List<PlayerDTO> players;
-	private boolean status;
 }

@@ -1,6 +1,5 @@
 package br.com.epicquest.rpg.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -28,16 +27,14 @@ public class LoginServiceImpl implements LoginService {
 
 	@NonNull
 	private JwtTokenProvider tokenProvider;
-	
-	
 
-	@Autowired
+	@NonNull
 	private AuthenticationManager authenticationManager;
 
 	public UserJwtDTO login(LoginDTO usuario) {
 		try {
-			Authentication authentication = authenticationManager.authenticate(
-					new UsernamePasswordAuthenticationToken(usuario.getUsername(), usuario.getPassword()));
+			UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(usuario.getUsername(), usuario.getPassword());
+			Authentication authentication = authenticationManager.authenticate(token);
 
 			SecurityContextHolder.getContext().setAuthentication(authentication);
 

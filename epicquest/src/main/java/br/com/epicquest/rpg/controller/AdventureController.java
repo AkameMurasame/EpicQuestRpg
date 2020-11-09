@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.epicquest.rpg.dto.AdventureDTO;
+import br.com.epicquest.rpg.security.CurrentUser;
+import br.com.epicquest.rpg.security.UsuarioLogado;
 import br.com.epicquest.rpg.service.AdventureService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -27,8 +29,8 @@ public class AdventureController {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@ResponseBody
 	@PostMapping("/create")
-	public AdventureDTO createAdventure(@RequestBody AdventureDTO adventure) {
-		return adventureService.createAdventure(adventure);
+	public AdventureDTO createAdventure(@RequestBody AdventureDTO adventure, @CurrentUser UsuarioLogado usuario) {
+		return adventureService.createAdventure(adventure, usuario);
 	}
 	
 	@ResponseStatus(code = HttpStatus.OK)

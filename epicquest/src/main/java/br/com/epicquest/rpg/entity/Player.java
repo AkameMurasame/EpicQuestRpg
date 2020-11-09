@@ -130,7 +130,7 @@ public class Player implements Serializable {
         @JoinColumn(name = "playerId", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "adventureId", referencedColumnName = "id")})
     @ManyToMany
-    private List<Adventure> adventureCollection;
+    private List<Adventure> adventures;
     
     @JoinColumn(name = "userId", referencedColumnName = "id")
     @ManyToOne(optional = false)
