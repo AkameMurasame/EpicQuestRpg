@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import br.com.epicquest.rpg.dto.UserDTO;
+import br.com.epicquest.rpg.security.UsuarioLogado;
 
 @Component
 public interface UserService {
@@ -13,4 +14,6 @@ public interface UserService {
 	public List<UserDTO> getAllUsers();
 
 	public UserDTO GetUserById(long userId);
+	
+	public void AddFriend(UserDTO friend, UsuarioLogado user);
 }

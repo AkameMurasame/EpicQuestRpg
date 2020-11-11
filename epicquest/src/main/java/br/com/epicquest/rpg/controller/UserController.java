@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.epicquest.rpg.dto.UserDTO;
+import br.com.epicquest.rpg.security.CurrentUser;
+import br.com.epicquest.rpg.security.UsuarioLogado;
 import br.com.epicquest.rpg.service.UserService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -38,11 +40,18 @@ public class UserController {
 	public List<UserDTO> getAllUsers() {
 		return userService.getAllUsers();
 	}
-	
+
 	@ResponseStatus(code = HttpStatus.OK)
 	@ResponseBody
 	@GetMapping("/getById/{userId}")
-	public UserDTO getUserById(@PathVariable long userId) {	
+	public UserDTO getUserById(@PathVariable long userId) {
 		return userService.GetUserById(userId);
+	}
+
+	@ResponseStatus(code = HttpStatus.CREATED)
+	@ResponseBody
+	@PostMapping("/addFriend")
+	public void friendlyRequest(@RequestBody UserDTO userFriend, @CurrentUser UsuarioLogado userLogged) {
+		userService.AddFriend(userFriend, userLogged);
 	}
 }
