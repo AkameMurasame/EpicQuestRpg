@@ -3,7 +3,6 @@ package br.com.epicquest.rpg.dto;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 import lombok.AllArgsConstructor;
@@ -22,13 +21,17 @@ public class AdventureDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Integer id;
-	
+
 	@NotEmpty(message = "Name is required")
 	private String name;
-	
+
 	@NotEmpty(message = "Photo is required")
 	private String photoUrl;
-	
+
 	@NotEmpty(message = "Description is required")
 	private String description;
+
+	private List<UserDTO> users;
+
+	private List<PlayerDTO> players;
 }
