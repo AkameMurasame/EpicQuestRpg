@@ -1,5 +1,7 @@
 package br.com.epicquest.rpg.mapper;
 
+import java.util.List;
+
 import org.mapstruct.Mapper;
 
 import br.com.epicquest.rpg.dto.UserDTO;
@@ -14,4 +16,6 @@ public interface UserMapper {
 	UserDTO toDto(User model);
 
 	User toModelByLoggedUser(UsuarioLogado user);
+
+	List<UserDTO> toDtoList(List<User> modelList);
 }

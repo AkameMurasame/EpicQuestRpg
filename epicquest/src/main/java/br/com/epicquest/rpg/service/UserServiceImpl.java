@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.epicquest.rpg.dto.UserDTO;
 import br.com.epicquest.rpg.entity.Friendlist;
+import br.com.epicquest.rpg.entity.Notification;
 import br.com.epicquest.rpg.entity.User;
 import br.com.epicquest.rpg.exceptions.AbstractException;
 import br.com.epicquest.rpg.mapper.UserMapper;
@@ -27,6 +28,8 @@ public class UserServiceImpl implements UserService {
 	private UserMapper _userMapper;
 	@Autowired
 	private FriendListRepository _friendListRepository;
+	@Autowired
+	private NotificationService _notificationService;
 
 	@Override
 	public UserDTO registerUser(UserDTO userDto) {
@@ -43,12 +46,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<UserDTO> getAllUsers() {
 		List<User> usuarios = _userRepository.findAll();
-		List<UserDTO> users = new ArrayList<UserDTO>();
-		for (User user : usuarios) {
-			users.add(_userMapper.toDto(user));
-		}
-
-		return users;
+		return _userMapper.toDtoList(usuarios);
 	}
 
 	@Override
@@ -62,5 +60,11 @@ public class UserServiceImpl implements UserService {
 		User userFriend = _userMapper.toModel(friend);
 		Friendlist friendlist = Friendlist.builder().userId(userLogged).friendId(userFriend).status(0).build();
 		_friendListRepository.save(friendlist);
+		List<User> userCollection = new ArrayList<User>();
+		userCollection.add(userFriend);
+		Notification notification = Notification.builder()
+				.description(userLogged.getUserName() + "te mandou um pedido de amizade").userCollection(userCollection)
+				.build();
+		_notificationService.createNotificacao(notification);
 	}
 }
