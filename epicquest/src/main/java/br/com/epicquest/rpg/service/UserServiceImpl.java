@@ -67,7 +67,8 @@ public class UserServiceImpl implements UserService {
 		userCollection.add(userFriend);
 		Notification notification = new Notification();
 		notification.setDescription(userLogged.getUserName() + "te mandou um pedido de amizade");
-		notification.setUserCollection(userCollection);
+		notification.setUsers(userCollection);
+		notification.setUserId(userLogged);
 		_notificationService.createNotificacao(notification);
 	}
 

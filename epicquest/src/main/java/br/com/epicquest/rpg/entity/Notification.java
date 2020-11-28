@@ -13,10 +13,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -38,10 +37,15 @@ public class Notification implements Serializable {
 	@Lob
 	@Column(name = "description")
 	private String description;
+	
+	@JoinColumn(name = "userId", referencedColumnName = "id")
+	@ManyToOne(optional = false)
+	private User userId;
+	
 	@JoinTable(name = "notificationusers", joinColumns = {
 			@JoinColumn(name = "notificationId", referencedColumnName = "id") }, inverseJoinColumns = {
 					@JoinColumn(name = "userId", referencedColumnName = "id") })
 	@ManyToMany
-	private List<User> userCollection;
+	private List<User> users;
 
 }

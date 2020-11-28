@@ -1,6 +1,7 @@
 package br.com.epicquest.rpg.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,7 +17,8 @@ import lombok.Setter;
 public class NotificationDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private long id;
 	private String description;
+	private UserDTO userId;
 }

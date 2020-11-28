@@ -60,12 +60,15 @@ public class User implements Serializable {
 	@ManyToMany(mappedBy = "users")
 	private List<Anotation> anotations;
 
+	@OneToMany(mappedBy = "userId")
+	private List<Notification> notification;
+	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
 	private List<Friendlist> friendlistCollection;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "friendId")
 	private List<Friendlist> friendlistCollection1;
 	
-	@ManyToMany(mappedBy = "userCollection")
+	@ManyToMany(mappedBy = "users")
 	private List<Notification> notificationCollection;
 
 	/*
