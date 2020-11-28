@@ -10,8 +10,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -56,25 +54,18 @@ public class User implements Serializable {
 	@Column(name = "photoDirectory")
 	private String photoUrl;
 
-	@JoinTable(name = "AdventureUsers", joinColumns = {
-			@JoinColumn(name = "userId", referencedColumnName = "id") }, inverseJoinColumns = {
-					@JoinColumn(name = "adventureId", referencedColumnName = "id") })
-	@ManyToMany
+	@ManyToMany(mappedBy = "users")
 	private List<Adventure> adventures;
 
-	@JoinTable(name = "user_friends", joinColumns = {
-			@JoinColumn(name = "user_id", referencedColumnName = "id") }, inverseJoinColumns = {
-					@JoinColumn(name = "friend_id", referencedColumnName = "id") })
-	@ManyToMany
-	private List<User> userCollection;
-	@ManyToMany(mappedBy = "userCollection")
-	private List<User> userCollection1;
+	@ManyToMany(mappedBy = "users")
+	private List<Anotation> anotations;
+
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
 	private List<Friendlist> friendlistCollection;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "friendId")
 	private List<Friendlist> friendlistCollection1;
-	 @ManyToMany(mappedBy = "userCollection")
-	    private List<Notification> notificationCollection;
+	@ManyToMany(mappedBy = "userCollection")
+	private List<Notification> notificationCollection;
 
 	/*
 	 * @JoinTable(name = "PermissionList", joinColumns = {

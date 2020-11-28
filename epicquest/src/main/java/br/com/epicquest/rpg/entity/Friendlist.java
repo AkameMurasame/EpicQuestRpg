@@ -17,7 +17,6 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
@@ -28,18 +27,18 @@ import lombok.Setter;
 @Table(name = "friendlist")
 @NamedQueries({ @NamedQuery(name = "Friendlist.findAll", query = "SELECT f FROM Friendlist f"),
 		@NamedQuery(name = "Friendlist.findByStatus", query = "SELECT f FROM Friendlist f WHERE f.status = :status"),
-		@NamedQuery(name = "Friendlist.findByRegId", query = "SELECT f FROM Friendlist f WHERE f.regId = :regId") })
+		@NamedQuery(name = "Friendlist.findByRegId", query = "SELECT f FROM Friendlist f WHERE f.id = :id") })
 public class Friendlist implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	@Basic(optional = false)
-	@Column(name = "STATUS")
-	private int status;
 	@Id
 	@Basic(optional = false)
-	@Column(name = "regId")
+	@Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long regId;
+	private Long id;
+	@Basic(optional = false)
+	@Column(name = "status")
+	private int status;
 	@JoinColumn(name = "userId", referencedColumnName = "id")
 	@ManyToOne(optional = false)
 	private User userId;

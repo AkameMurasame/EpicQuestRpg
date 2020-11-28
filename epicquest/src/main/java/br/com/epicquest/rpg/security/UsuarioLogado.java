@@ -34,10 +34,12 @@ public class UsuarioLogado implements UserDetails {
 	
 	private String password;
 	
-	private String photoDirectory;
+	private String photoUrl;
+	
+	private String fullName;
 
 	public static UsuarioLogado create(User user) {
-		return new UsuarioLogado(user.getId(), user.getUserName(), user.getEmail(), user.getDescription(), user.getPassword(), user.getPhotoUrl());
+		return new UsuarioLogado(user.getId(), user.getUserName(), user.getEmail(), user.getDescription(), user.getPassword(), user.getPhotoUrl(), user.getFullName());
 	}
 
 	@Override
