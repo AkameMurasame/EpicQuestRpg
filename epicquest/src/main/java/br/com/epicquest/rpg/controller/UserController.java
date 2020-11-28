@@ -47,4 +47,18 @@ public class UserController {
 	public void friendlyRequest(@RequestBody UserDTO userFriend, @CurrentUser UsuarioLogado userLogged) {
 		userService.AddFriend(userFriend, userLogged);
 	}
+
+	@ResponseStatus(code = HttpStatus.CREATED)
+	@ResponseBody
+	@PostMapping("/aceptInvite")
+	public void aceptInvite(@RequestBody UserDTO userFriend, @CurrentUser UsuarioLogado userLogged) {
+		userService.aceptInvite(userFriend, userLogged);
+	}
+
+	@ResponseStatus(code = HttpStatus.OK)
+	@ResponseBody
+	@GetMapping("/getFriends")
+	public List<UserDTO> getFriends(@CurrentUser UsuarioLogado userLogged) {
+		return userService.getFriends(userLogged);
+	}
 }

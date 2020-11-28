@@ -14,6 +14,10 @@ public interface UserService {
 	public List<UserDTO> getAllUsers();
 
 	public UserDTO GetUserById(long userId);
-	
+
 	public void AddFriend(UserDTO friend, UsuarioLogado user);
+
+	public void aceptInvite(UserDTO friend, UsuarioLogado user);
+
+	public List<UserDTO> getFriends(UsuarioLogado user);
 }

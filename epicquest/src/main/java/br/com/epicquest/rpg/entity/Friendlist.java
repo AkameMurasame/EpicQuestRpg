@@ -17,13 +17,13 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
-@Builder
-@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "friendlist")
 @NamedQueries({ @NamedQuery(name = "Friendlist.findAll", query = "SELECT f FROM Friendlist f"),
 		@NamedQuery(name = "Friendlist.findByStatus", query = "SELECT f FROM Friendlist f WHERE f.status = :status"),
