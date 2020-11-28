@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.epicquest.rpg.dto.NotificationDTO;
 import br.com.epicquest.rpg.entity.Notification;
+import br.com.epicquest.rpg.entity.User;
 import br.com.epicquest.rpg.mapper.NotificationMapper;
 import br.com.epicquest.rpg.repository.NotificationRepository;
 import br.com.epicquest.rpg.repository.UserRepository;

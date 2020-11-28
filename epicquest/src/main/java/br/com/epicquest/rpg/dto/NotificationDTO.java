@@ -18,5 +18,5 @@ public class NotificationDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private long id;
-	private long description;
+	private String description;
 }

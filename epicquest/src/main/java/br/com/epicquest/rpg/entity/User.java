@@ -64,6 +64,7 @@ public class User implements Serializable {
 	private List<Friendlist> friendlistCollection;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "friendId")
 	private List<Friendlist> friendlistCollection1;
+	
 	@ManyToMany(mappedBy = "userCollection")
 	private List<Notification> notificationCollection;
 

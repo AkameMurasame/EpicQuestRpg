@@ -62,9 +62,9 @@ public class UserServiceImpl implements UserService {
 		_friendListRepository.save(friendlist);
 		List<User> userCollection = new ArrayList<User>();
 		userCollection.add(userFriend);
-		Notification notification = Notification.builder()
-				.description(userLogged.getUserName() + "te mandou um pedido de amizade").userCollection(userCollection)
-				.build();
+		Notification notification = new Notification();
+		notification.setDescription(userLogged.getUserName() + "te mandou um pedido de amizade");
+		notification.setUserCollection(userCollection);
 		_notificationService.createNotificacao(notification);
 	}
 }
