@@ -27,13 +27,6 @@ public class UserController {
 	@NonNull
 	private UserService userService;
 
-	@ResponseStatus(code = HttpStatus.CREATED)
-	@ResponseBody
-	@PostMapping("/register")
-	public UserDTO registerUser(@RequestBody UserDTO usuario) {
-		return userService.registerUser(usuario);
-	}
-
 	@ResponseStatus(code = HttpStatus.OK)
 	@ResponseBody
 	@GetMapping("/getAll")
