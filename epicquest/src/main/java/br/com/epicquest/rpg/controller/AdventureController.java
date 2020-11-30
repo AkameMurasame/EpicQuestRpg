@@ -54,5 +54,4 @@ public class AdventureController {
 	public void requestAdventure(@RequestBody AcceptAdventureRequestDTO request) {
 		adventureService.acceptRequestAdventure(request);
 	}
-	
 }

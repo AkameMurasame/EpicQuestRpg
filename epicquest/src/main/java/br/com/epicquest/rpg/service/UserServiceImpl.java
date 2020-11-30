@@ -89,8 +89,13 @@ public class UserServiceImpl implements UserService {
 		List<Friendlist> friends = _friendListRepository.getFriendList(user.getId());
 		List<UserDTO> users = new ArrayList<UserDTO>();
 		friends.forEach(e -> {
-			User friend = e.getFriendId();
-			users.add(_userMapper.toDto(friend));
+			if (!e.getFriendId().getId().equals(user.getId())) {
+				User friend = e.getFriendId();
+				users.add(_userMapper.toDto(friend));
+			} else {
+				User friend = e.getUserId();
+				users.add(_userMapper.toDto(friend));
+			}
 		});
 		return users;
 	}
