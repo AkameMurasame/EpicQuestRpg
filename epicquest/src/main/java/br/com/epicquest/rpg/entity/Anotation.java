@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -48,5 +49,9 @@ public class Anotation implements Serializable {
 					@JoinColumn(name = "userId", referencedColumnName = "id") })
 	@ManyToMany
 	private List<User> users;
+	
+	@JoinColumn(name = "adventureId", referencedColumnName = "id")
+	@ManyToOne(optional = false)
+	private Adventure adventureId;
 
 }

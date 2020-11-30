@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,13 +11,11 @@ import lombok.Setter;
 @Setter
 @Builder
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
-public class NotificationDTO implements Serializable {
+public class AcceptAdventureRequestDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private long id;
-	private String description;
-	private UserDTO userId;
 	private RequestAdventureDTO adventure;
+	private UserDTO user;
+
 }

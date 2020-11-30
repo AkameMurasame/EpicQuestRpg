@@ -20,7 +20,7 @@ public class AdventureDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Integer id;
+	private long id;
 
 	@NotEmpty(message = "Name is required")
 	private String name;

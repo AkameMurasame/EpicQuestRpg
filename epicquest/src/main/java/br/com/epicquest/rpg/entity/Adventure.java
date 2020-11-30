@@ -33,7 +33,7 @@ public class Adventure implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
 	@Column(name = "id")
-	private Integer id;
+	private long id;
 
 	@Basic(optional = false)
 	@Column(name = "name")

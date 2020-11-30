@@ -20,4 +20,6 @@ public interface UserService {
 	public void aceptInvite(UserDTO friend, UsuarioLogado user);
 
 	public List<UserDTO> getFriends(UsuarioLogado user);
+
+	public UserDTO updateUser(UserDTO user);
 }

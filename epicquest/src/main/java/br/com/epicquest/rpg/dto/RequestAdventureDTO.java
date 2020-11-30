@@ -13,12 +13,16 @@ import lombok.Setter;
 @Builder
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class NotificationDTO implements Serializable {
+public class RequestAdventureDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private long id;
+
+	private String name;
+
+	private String photoUrl;
+
 	private String description;
-	private UserDTO userId;
-	private RequestAdventureDTO adventure;
+
 }

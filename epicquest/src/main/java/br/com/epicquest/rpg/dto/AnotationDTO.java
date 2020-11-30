@@ -23,4 +23,5 @@ public class AnotationDTO implements Serializable {
 	private String content;
 	private long userId;
 	private List<Long> sharedUsersIds;
+	private AdventureDTO adventureId;
 }

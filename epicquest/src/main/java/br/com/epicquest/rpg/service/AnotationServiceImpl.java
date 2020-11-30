@@ -9,6 +9,7 @@ import br.com.epicquest.rpg.dto.AnotationDTO;
 import br.com.epicquest.rpg.entity.Anotation;
 import br.com.epicquest.rpg.entity.User;
 import br.com.epicquest.rpg.mapper.AnotationMapper;
+import br.com.epicquest.rpg.repository.AdventureRepository;
 import br.com.epicquest.rpg.repository.AnotationRepository;
 import br.com.epicquest.rpg.repository.UserRepository;
 import lombok.NonNull;
@@ -27,6 +28,9 @@ public class AnotationServiceImpl implements AnotationService {
 	@NonNull
 	private AnotationRepository _anotationRepository;
 
+	@NonNull
+	private AdventureRepository _adventureRepository;
+
 	@Override
 	public AnotationDTO createAnotation(AnotationDTO anotationDTO) {
 		List<User> usuarios = new ArrayList<User>();
@@ -37,9 +41,10 @@ public class AnotationServiceImpl implements AnotationService {
 				usuarios.add(_userRepository.findById(e).get());
 			});
 		}
-		
+
 		Anotation anotation = _anotationMapper.toModel(anotationDTO);
 		anotation.setUsers(usuarios);
+		anotation.setAdventureId(_adventureRepository.findById(anotationDTO.getAdventureId().getId()).get());
 		Anotation anotationSaved = _anotationRepository.save(anotation);
 		return _anotationMapper.toDto(anotationSaved);
 	}
@@ -53,5 +58,4 @@ public class AnotationServiceImpl implements AnotationService {
 	public void deleteAnotation(long anotationId) {
 		_anotationRepository.deleteById(anotationId);
 	}
-
 }

@@ -66,7 +66,7 @@ public class UserServiceImpl implements UserService {
 		List<User> userCollection = new ArrayList<User>();
 		userCollection.add(userFriend);
 		Notification notification = new Notification();
-		notification.setDescription(userLogged.getUserName() + "te mandou um pedido de amizade");
+		notification.setDescription(userLogged.getUserName() + " te mandou um pedido de amizade");
 		notification.setUsers(userCollection);
 		notification.setUserId(userLogged);
 		_notificationService.createNotificacao(notification);
@@ -76,6 +76,13 @@ public class UserServiceImpl implements UserService {
 		Friendlist friendlist = _friendListRepository.getFriendlyRequest(friend.getId(), user.getId());
 		friendlist.setStatus(1);
 		_friendListRepository.save(friendlist);
+		List<User> users = new ArrayList<User>();
+		users.add(_userMapper.toModel(friend));
+		Notification notification = new Notification();
+		notification.setDescription(user.getUsername() + " Aceitou seu pedido de amizade");
+		notification.setUsers(users);
+		notification.setUserId(_userMapper.toModelByLoggedUser(user));
+		_notificationService.createNotificacao(notification);
 	}
 
 	public List<UserDTO> getFriends(UsuarioLogado user) {
@@ -86,5 +93,11 @@ public class UserServiceImpl implements UserService {
 			users.add(_userMapper.toDto(friend));
 		});
 		return users;
+	}
+
+	@Override
+	public UserDTO updateUser(UserDTO user) {
+		User userEntity = _userRepository.save(_userMapper.toModel(user));
+		return _userMapper.toDto(userEntity);
 	}
 }

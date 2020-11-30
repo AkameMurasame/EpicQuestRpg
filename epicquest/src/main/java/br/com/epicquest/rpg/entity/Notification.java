@@ -42,6 +42,10 @@ public class Notification implements Serializable {
 	@ManyToOne(optional = false)
 	private User userId;
 	
+	@JoinColumn(name = "adventureId", referencedColumnName = "id")
+	@ManyToOne(optional = true)
+	private Adventure adventureId;
+	
 	@JoinTable(name = "notificationusers", joinColumns = {
 			@JoinColumn(name = "notificationId", referencedColumnName = "id") }, inverseJoinColumns = {
 					@JoinColumn(name = "userId", referencedColumnName = "id") })
