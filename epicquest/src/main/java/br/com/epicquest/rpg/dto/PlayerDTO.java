@@ -22,6 +22,7 @@ public class PlayerDTO implements Serializable {
 	private String name;
 	private String photoUrl;
 	private UserDTO user;
+	private Integer experience;
 	private Integer nivel;
 	private AdventureDTO adventure;
 	private ClasseDTO classe;

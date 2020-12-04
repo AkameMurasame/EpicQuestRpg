@@ -75,6 +75,9 @@ public class Player implements Serializable {
 	@Column(name = "age")
 	private Integer age;
 
+	@Column(name = "experience")
+	private Integer experience;
+
 	@Column(name = "lifePoints")
 	private Integer lifePoints;
 
