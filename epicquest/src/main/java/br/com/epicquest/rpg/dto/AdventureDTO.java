@@ -31,6 +31,8 @@ public class AdventureDTO implements Serializable {
 	@NotEmpty(message = "Description is required")
 	private String description;
 
+	private UserDTO mestre;
+	
 	private List<UserDTO> users;
 
 	private List<PlayerDTO> players;
