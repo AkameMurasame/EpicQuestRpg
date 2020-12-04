@@ -12,36 +12,36 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.epicquest.rpg.dto.ItemDTO;
-import br.com.epicquest.rpg.service.ItenService;
+import br.com.epicquest.rpg.dto.PericiaDTO;
+import br.com.epicquest.rpg.service.PericiaService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/Item")
-public class ItemController {
+@RequestMapping("/api/v1/Pericia")
+public class PericiaController {
 	@NonNull
-	private ItenService _itenService;
+	private PericiaService _periciaService;
 
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@ResponseBody
 	@PostMapping("/create")
-	public ItemDTO createItem(@RequestBody ItemDTO deus) {
-		return _itenService.createIten(deus);
+	public PericiaDTO createPericia(@RequestBody PericiaDTO pericia) {
+		return _periciaService.createPericia(pericia);
 	}
 
 	@ResponseStatus(code = HttpStatus.OK)
 	@ResponseBody
 	@GetMapping("/getAll")
-	public List<ItemDTO> getAllItems() {
-		return _itenService.getAllItens();
+	public List<PericiaDTO> getAllPericias() {
+		return _periciaService.getAllPericias();
 	}
 
 	@ResponseStatus(code = HttpStatus.OK)
 	@ResponseBody
 	@GetMapping("/getById/{id}")
-	public ItemDTO getItemById(@PathVariable long id) {
-		return _itenService.getItenById(id);
+	public PericiaDTO getPericiaById(@PathVariable Integer id) {
+		return _periciaService.getPericiaById(id);
 	}
 }

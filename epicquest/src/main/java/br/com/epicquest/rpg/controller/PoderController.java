@@ -12,36 +12,36 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.epicquest.rpg.dto.ItemDTO;
-import br.com.epicquest.rpg.service.ItenService;
+import br.com.epicquest.rpg.dto.PoderDTO;
+import br.com.epicquest.rpg.service.PoderService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/Item")
-public class ItemController {
+@RequestMapping("/api/v1/Poder")
+public class PoderController {
 	@NonNull
-	private ItenService _itenService;
+	private PoderService _poderService;
 
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@ResponseBody
 	@PostMapping("/create")
-	public ItemDTO createItem(@RequestBody ItemDTO deus) {
-		return _itenService.createIten(deus);
+	public PoderDTO createPoder(@RequestBody PoderDTO poder) {
+		return _poderService.createPoder(poder);
 	}
 
 	@ResponseStatus(code = HttpStatus.OK)
 	@ResponseBody
 	@GetMapping("/getAll")
-	public List<ItemDTO> getAllItems() {
-		return _itenService.getAllItens();
+	public List<PoderDTO> getAllPoderes() {
+		return _poderService.getAllPoderes();
 	}
 
 	@ResponseStatus(code = HttpStatus.OK)
 	@ResponseBody
 	@GetMapping("/getById/{id}")
-	public ItemDTO getItemById(@PathVariable long id) {
-		return _itenService.getItenById(id);
+	public PoderDTO getPoderById(@PathVariable Integer id) {
+		return _poderService.getPoderById(id);
 	}
 }

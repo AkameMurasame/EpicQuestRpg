@@ -17,4 +17,6 @@ public interface AdventureService {
 	public void requestAdventure(AdventureDTO adventure, UsuarioLogado user);
 
 	public void acceptRequestAdventure(AcceptAdventureRequestDTO request);
+
+	public AdventureDTO getAdventureById(long adventureId);
 }

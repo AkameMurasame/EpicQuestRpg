@@ -43,6 +43,15 @@ public class AdventureServiceImpl implements AdventureService {
 		}
 	}
 
+	public AdventureDTO getAdventureById(long adventureId) {
+		try {
+			Adventure adventure = _adventureRepository.findById(adventureId).get();
+			return _adventureMapper.toDto(adventure);
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	
 	@Override
 	public List<AdventureDTO> getAllAdventures() {
 		try {

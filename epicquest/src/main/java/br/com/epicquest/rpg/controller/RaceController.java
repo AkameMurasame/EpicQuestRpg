@@ -12,36 +12,36 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.epicquest.rpg.dto.ItemDTO;
-import br.com.epicquest.rpg.service.ItenService;
+import br.com.epicquest.rpg.dto.RaceDTO;
+import br.com.epicquest.rpg.service.RaceService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/Item")
-public class ItemController {
+@RequestMapping("/api/v1/Race")
+public class RaceController {
 	@NonNull
-	private ItenService _itenService;
+	private RaceService _raceService;
 
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@ResponseBody
 	@PostMapping("/create")
-	public ItemDTO createItem(@RequestBody ItemDTO deus) {
-		return _itenService.createIten(deus);
+	public RaceDTO createItem(@RequestBody RaceDTO race) {
+		return _raceService.createRace(race);
 	}
 
 	@ResponseStatus(code = HttpStatus.OK)
 	@ResponseBody
 	@GetMapping("/getAll")
-	public List<ItemDTO> getAllItems() {
-		return _itenService.getAllItens();
+	public List<RaceDTO> getAllRaces() {
+		return _raceService.getAllRaces();
 	}
 
 	@ResponseStatus(code = HttpStatus.OK)
 	@ResponseBody
 	@GetMapping("/getById/{id}")
-	public ItemDTO getItemById(@PathVariable long id) {
-		return _itenService.getItenById(id);
+	public RaceDTO getRaceById(@PathVariable Integer id) {
+		return _raceService.getRaceById(id);
 	}
 }
