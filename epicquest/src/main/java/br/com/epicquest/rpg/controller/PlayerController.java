@@ -52,7 +52,7 @@ public class PlayerController {
 
 	@ResponseStatus(code = HttpStatus.OK)
 	@ResponseBody
-	@GetMapping("/getById/{id}")
+	@GetMapping("/getPlayersByAdventureId/{id}")
 	public List<PlayerDTO> getPlayersByAdventureId(@PathVariable long id) {
 		return _playerService.getPlayersByAdventure(id);
 	}
