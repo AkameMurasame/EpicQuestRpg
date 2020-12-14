@@ -102,11 +102,11 @@ public class Iten implements Serializable {
     private Integer charismaPointsEffect;
     @Column(name = "periciaValueModifier")
     private Integer periciaValueModifier;
-    @JoinTable(name = "ItensPlayer", joinColumns = {
+    /*@JoinTable(name = "ItensPlayer", joinColumns = {
         @JoinColumn(name = "itenId", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "playerId", referencedColumnName = "id")})
     @ManyToMany
-    private List<Player> playerCollection;
+    private List<Player> playerCollection;*/
     @JoinColumn(name = "requerimentId", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Requirement requerimentId;

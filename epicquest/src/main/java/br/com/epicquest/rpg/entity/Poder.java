@@ -57,11 +57,11 @@ public class Poder implements Serializable {
     private List<BardWay> bardWayCollection;
     @ManyToMany(mappedBy = "poderCollection")
     private List<ArcanistWay> arcanistWayCollection;
-    @JoinTable(name = "PoderesPlayer", joinColumns = {
+    /* @JoinTable(name = "PoderesPlayer", joinColumns = {
         @JoinColumn(name = "poderId", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "playerId", referencedColumnName = "id")})
     @ManyToMany
-    private List<Player> playerCollection;
+    private List<Player> playerCollection;*/
     @ManyToMany(mappedBy = "poderCollection")
     private List<BarbarianWay> barbarianWayCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "newTormentPower")

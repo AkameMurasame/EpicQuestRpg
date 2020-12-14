@@ -73,6 +73,7 @@ public class Race implements Serializable {
     private List<Pericia> periciaCollection;
     @ManyToMany(mappedBy = "raceCollection")
     private List<Deus> deusCollection;
+    /*
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "raceId")
-    private List<Player> playerCollection;
+    private List<Player> playerCollection;*/
 }

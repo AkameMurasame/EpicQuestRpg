@@ -73,6 +73,4 @@ public class Deus implements Serializable {
         @JoinColumn(name = "raceId", referencedColumnName = "id")})
     @ManyToMany
     private Collection<Race> raceCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "deusId")
-    private Collection<Player> playerCollection;
 }

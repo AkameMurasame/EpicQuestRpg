@@ -58,8 +58,6 @@ public class Classe implements Serializable {
         @JoinColumn(name = "periciaId", referencedColumnName = "id")})
     @ManyToMany
     private Collection<Pericia> periciaCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "classeId")
-    private Collection<Player> playerCollection;
     @JoinColumn(name = "arcanistWayId", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private ArcanistWay arcanistWayId;

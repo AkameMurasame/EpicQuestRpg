@@ -45,6 +45,7 @@ public class Origin implements Serializable {
     @Lob
     @Column(name = "description")
     private String description;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "origemId")
-    private List<Player> playerCollection;
+    
+    /*@OneToMany(cascade = CascadeType.ALL, mappedBy = "origemId")
+    private List<Player> playerCollection;*/
 }

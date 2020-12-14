@@ -69,12 +69,13 @@ public class Pericia implements Serializable {
     
     @ManyToMany(mappedBy = "periciaCollection")
     private List<Classe> classeCollection;
-    
+   
+    /*
     @JoinTable(name = "PericiasPlayer", joinColumns = {
         @JoinColumn(name = "periciaId", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "playerId", referencedColumnName = "id")})
     @ManyToMany
-    private List<Player> playerCollection;
+    private List<Player> playerCollection; */
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "periciaTrained")
     private List<SorcererLineageBuff> sorcererLineageBuffCollection;

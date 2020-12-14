@@ -35,6 +35,7 @@ public class PlayerServiceImpl implements PlayerService {
 	public PlayerDTO createPlayer(PlayerDTO player, UsuarioLogado user) {
 		try {
 			Player playerEntity = _playerMapper.toModel(player);
+			playerEntity.setAdventure(_adventureRepository.findById(player.getAdventure().getId()).get());
 			User userLogged = _userMapper.toModelByLoggedUser(user);
 			playerEntity.setUserId(userLogged);
 			return _playerMapper.toDto(_playerRepository.save(playerEntity));
