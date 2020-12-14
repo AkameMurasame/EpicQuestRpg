@@ -1,5 +1,6 @@
 package br.com.epicquest.rpg.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -24,6 +25,20 @@ public class PericiaServiceImpl implements PericiaService {
 	public PericiaDTO createPericia(PericiaDTO pericia) {
 		try {
 			return _periciaMapper.toDto(_periciaRepository.save(_periciaMapper.toModel(pericia)));
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	
+	@Override
+	public List<PericiaDTO> createAllPericia(List<PericiaDTO> pericias) {
+		try {
+			List<PericiaDTO> rtPericias = new ArrayList<PericiaDTO>();
+			for(PericiaDTO pericia: pericias) {
+				PericiaDTO rtPericia = _periciaMapper.toDto(_periciaRepository.save(_periciaMapper.toModel(pericia)));
+				rtPericias.add(rtPericia);
+			}
+			return rtPericias;
 		} catch (Exception e) {
 			throw e;
 		}

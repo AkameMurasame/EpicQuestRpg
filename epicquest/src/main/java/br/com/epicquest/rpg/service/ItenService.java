@@ -9,6 +9,8 @@ import br.com.epicquest.rpg.dto.ItemDTO;
 @Component
 public interface ItenService {
 	public ItemDTO createIten(ItemDTO deus);
+	
+	public List<ItemDTO> createAllIten( List<ItemDTO> items);
 
 	public List<ItemDTO> getAllItens();
 

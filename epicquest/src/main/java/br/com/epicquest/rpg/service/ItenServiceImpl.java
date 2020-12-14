@@ -1,5 +1,6 @@
 package br.com.epicquest.rpg.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -24,6 +25,20 @@ public class ItenServiceImpl implements ItenService {
 	public ItemDTO createIten(ItemDTO iten) {
 		try {
 			return _itenMapper.toDto(_itenRepository.save(_itenMapper.toModel(iten)));
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	
+	@Override
+	public List<ItemDTO> createAllIten(List<ItemDTO> items) {
+		try {
+			List<ItemDTO> rtItems = new ArrayList<ItemDTO>();
+			for(ItemDTO item: items) {
+				ItemDTO rtItem = _itenMapper.toDto(_itenRepository.save(_itenMapper.toModel(item)));
+				rtItems.add(rtItem);
+			}
+			return rtItems;
 		} catch (Exception e) {
 			throw e;
 		}

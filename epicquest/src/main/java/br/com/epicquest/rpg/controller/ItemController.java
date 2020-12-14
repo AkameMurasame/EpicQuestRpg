@@ -30,6 +30,11 @@ public class ItemController {
 	public ItemDTO createItem(@RequestBody ItemDTO deus) {
 		return _itenService.createIten(deus);
 	}
+	
+	@PostMapping("/createAll")
+	public List<ItemDTO> createAllItem(@RequestBody List<ItemDTO> item) {
+		return _itenService.createAllIten(item);
+	}
 
 	@ResponseStatus(code = HttpStatus.OK)
 	@ResponseBody

@@ -30,6 +30,13 @@ public class PericiaController {
 	public PericiaDTO createPericia(@RequestBody PericiaDTO pericia) {
 		return _periciaService.createPericia(pericia);
 	}
+	
+	@ResponseStatus(code = HttpStatus.CREATED)
+	@ResponseBody
+	@PostMapping("/createAll")
+	public List<PericiaDTO> createAllPericia(@RequestBody List<PericiaDTO> pericias) {
+		return _periciaService.createAllPericia(pericias);
+	}
 
 	@ResponseStatus(code = HttpStatus.OK)
 	@ResponseBody

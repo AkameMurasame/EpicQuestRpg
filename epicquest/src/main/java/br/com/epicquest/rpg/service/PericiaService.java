@@ -9,6 +9,8 @@ import br.com.epicquest.rpg.dto.PericiaDTO;
 @Component
 public interface PericiaService {
 	public PericiaDTO createPericia(PericiaDTO deus);
+	
+	public List<PericiaDTO> createAllPericia(List<PericiaDTO> pericias);
 
 	public List<PericiaDTO> getAllPericias();
 

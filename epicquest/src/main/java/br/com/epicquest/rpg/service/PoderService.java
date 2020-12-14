@@ -9,6 +9,8 @@ import br.com.epicquest.rpg.dto.PoderDTO;
 @Component
 public interface PoderService {
 	public PoderDTO createPoder(PoderDTO deus);
+	
+	public List<PoderDTO> createAllPoder(List<PoderDTO> poderes);
 
 	public List<PoderDTO> getAllPoderes();
 

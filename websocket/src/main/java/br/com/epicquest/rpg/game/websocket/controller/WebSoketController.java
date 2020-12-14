@@ -5,7 +5,6 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.annotation.SendToUser;
 import org.springframework.stereotype.Controller;
@@ -48,11 +47,18 @@ public class WebSoketController {
 		return webChatUsername;
 	}
 	*/
-
-	@MessageMapping("/message") // 6
-	public void greeting(Pincel pincel) {
+	
+	@MessageMapping("/photo") // 6
+	public void greeting(String photo) {
 		connectedUsers.forEach(e -> {
-			simpMessagingTemplate.convertAndSendToUser(e, "/msg", pincel);
+			simpMessagingTemplate.convertAndSendToUser(e, "/bg", photo);
+		});
+	}
+
+	@MessageMapping("/pincel") // 6
+	public void greetingP(Pincel pincel) {
+		connectedUsers.forEach(e -> {
+			simpMessagingTemplate.convertAndSendToUser(e, "/draw", pincel);
 		});
 	}
 }

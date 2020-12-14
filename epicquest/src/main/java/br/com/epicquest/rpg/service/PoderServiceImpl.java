@@ -1,6 +1,7 @@
 package br.com.epicquest.rpg.service;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import org.springframework.stereotype.Component;
 
@@ -19,6 +20,20 @@ public class PoderServiceImpl implements PoderService {
 
 	@NonNull
 	PoderMapper _poderMapper;
+	
+	@Override
+	public List<PoderDTO> createAllPoder(List<PoderDTO> poderes) {
+		try {
+			List<PoderDTO> rtPoderes = new ArrayList<PoderDTO>();
+			for(PoderDTO poder: poderes) {
+				PoderDTO rtPoder = _poderMapper.toDto(_poderRepository.save(_poderMapper.toModel(poder)));
+				rtPoderes.add(rtPoder);
+			}
+			return rtPoderes;
+		} catch (Exception e) {
+			throw e;
+		}
+	}
 
 	@Override
 	public PoderDTO createPoder(PoderDTO poder) {

@@ -67,6 +67,6 @@ public class Poder implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "newTormentPower")
     private List<SorcererLineageBuff> sorcererLineageBuffCollection;
     @JoinColumn(name = "requirementId", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = true)
     private Requirement requirementId;
 }

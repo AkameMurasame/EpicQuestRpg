@@ -19,7 +19,7 @@ public class PericiaDTO implements Serializable {
 	private Long id;
 	private String name;
 	private String description;
-	// attribute: AttributesEnum,
+	private String attribute;
 	private boolean onlyTrained;
 	private boolean armorPenalty;
 }
