@@ -54,6 +54,48 @@ public class WebSoketController {
 			simpMessagingTemplate.convertAndSendToUser(e, "/bg", photo);
 		});
 	}
+	
+	@MessageMapping("/reset") // 6
+	public void greetingR(String reset) {
+		connectedUsers.forEach(e -> {
+			simpMessagingTemplate.convertAndSendToUser(e, "/reset", reset);
+		});
+	}
+	
+	@MessageMapping("/start") // 6
+	public void greetingS(String start) {
+		connectedUsers.forEach(e -> {
+			simpMessagingTemplate.convertAndSendToUser(e, "/start", start);
+		});
+	}
+	
+	@MessageMapping("/end") // 6
+	public void greetingE(String end) {
+		connectedUsers.forEach(e -> {
+			simpMessagingTemplate.convertAndSendToUser(e, "/end", end);
+		});
+	}
+	
+	@MessageMapping("/color") // 6
+	public void greetingC(String color) {
+		connectedUsers.forEach(e -> {
+			simpMessagingTemplate.convertAndSendToUser(e, "/color", color);
+		});
+	}
+	
+	@MessageMapping("/width") // 6
+	public void greetingW(String width) {
+		connectedUsers.forEach(e -> {
+			simpMessagingTemplate.convertAndSendToUser(e, "/width", width);
+		});
+	}
+	
+	@MessageMapping("/undo") // 6
+	public void greetingU(String undo) {
+		connectedUsers.forEach(e -> {
+			simpMessagingTemplate.convertAndSendToUser(e, "/undo", undo);
+		});
+	}
 
 	@MessageMapping("/pincel") // 6
 	public void greetingP(Pincel pincel) {
